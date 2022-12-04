@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+//Same Name With Different Parameter and Diffrent Data Type is called Method Overloading
+
+
+namespace Inheritance
+{
+    public class Area
+    {
+        public void Calculation(int redius)
+        {
+            Console.WriteLine(redius * redius);
+        }
+        public void Calculation(int Width,int height)
+        {
+            Console.WriteLine(Width*height);
+        }
+        public void Print(int i)
+        {
+            Console.WriteLine(i);
+        }
+        public void Print(string i)
+        {
+            Console.WriteLine(i);
+        }
+        public void Print1(int i)
+        {
+            Console.WriteLine(i);
+        }
+        //public string Print1(int i)
+        //{
+        //    Console.WriteLine();
+        //    return "i";
+        //}
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Area ar = new Area();
+            ar.Calculation(4);
+            ar.Calculation(10, 20);
+            ar.Print(25);
+            ar.Print("24");
+        }
+    }
+}

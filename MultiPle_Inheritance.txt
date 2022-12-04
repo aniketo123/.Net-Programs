@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SingleInheritance1
+{
+    public class Test
+    {
+        public int Num1;
+        public int Num2;
+        public void Setvalue(int num1,int num2)
+        {
+            Num1 = num1;
+            Num2= num2; 
+        }
+    }
+    public interface Result
+    {
+         void PrintResult(int res);
+    }
+    public class ADD : Test,Result
+    {
+        public int add()
+        {
+            Console.WriteLine("ADD of Two Number Is");
+
+            return Num1 + Num2;
+        }
+        public void PrintResult(int res)
+        {
+            Console.WriteLine(res);
+        }
+    }
+    public class Subtraction:Test, Result
+    {
+        public int subtraction()
+        {
+            Console.WriteLine("subtraction of Two Number Is");
+            return Num1 - Num2;
+        }
+        public void PrintResult(int res)
+        {
+            Console.WriteLine(res);
+        }
+    }
+    public class Multiply:Test
+    {
+        public void multiply()
+        {
+            Console.WriteLine("Multi of Two Number Is");
+            Console.WriteLine(Num1 * Num2);
+        }
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ADD obj = new ADD();
+            obj.Setvalue(10, 20);
+            int result = obj.add();
+            obj.PrintResult(result);
+            Subtraction obj1 = new Subtraction();
+            obj1.Setvalue(20, 10);
+            result=obj1.subtraction();
+            obj1.PrintResult(result);
+            Multiply obj2 = new Multiply();
+            obj2.Setvalue(20, 10);
+            obj2.multiply();
+            Console.ReadKey();
+        }
+    }
+}

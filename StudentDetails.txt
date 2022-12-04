@@ -1,0 +1,116 @@
+using System;
+using System.Collections.Generic;
+public class Student
+{
+    public int RollNo { get; set; }
+    public string Name { get; set; }
+
+}
+
+public class Result
+{
+    public Student SetStudentValue()
+    {
+        Student Std = new Student();
+        Console.WriteLine("Enter Student RollNo");
+        Std.RollNo = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Student Name");
+        Std.Name = Console.ReadLine();
+        return Std;
+    }
+    public void GetStudnetValue(Student std)
+    {
+        Console.WriteLine(std.RollNo);
+        Console.WriteLine(std.Name);
+    }
+    public List<Student> SetStudentDetails()
+    {
+        List<Student> listStudent = new List<Student>();
+        Student std = new Student();
+        Console.WriteLine("Enter Your Roll No");
+        std.RollNo = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter Your Name");
+        std.Name = Console.ReadLine();
+        listStudent.Add(std);
+        return listStudent;
+    }
+    public void GetStudnetValue(List<Student> std)
+    {
+        {
+            foreach (var item in std)
+            {
+                Console.WriteLine(item.RollNo);
+                Console.WriteLine(item.Name);
+            }
+        }
+    }
+    public int res1()
+    {
+    
+        int sum = 0;
+        float percentage;
+        Console.WriteLine("Enter First Student Hindi Marks");
+        int Hindi = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter First Student English Marks");
+        int English = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter  First Student math Marks");
+        int math = int.Parse(Console.ReadLine());
+        sum = Hindi + English + math;
+        percentage = (sum * 100) / 300;
+
+        Console.WriteLine("First Student Total Marks is = \n" + sum);
+        Console.WriteLine("First Student Percentage is = \n" + percentage);
+        
+        if (percentage >= 60)
+        {
+            Console.WriteLine("Congratulation First Student pass\n");
+        }
+        else
+        {
+            Console.WriteLine("First Student Fail\n");
+        }
+        return sum;
+        
+    }
+    public int res2()
+    {
+        int sum = 0;
+        Console.WriteLine("Enter Hindi Marks");
+       int Hindi = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter English Marks");
+       int  English = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter math Marks");
+        int math = int.Parse(Console.ReadLine());
+        sum = Hindi + English + math;
+       float percentage = (sum * 100) / 300;
+        Console.WriteLine("Second Student Total Marks is = " + sum);
+        Console.WriteLine("Second Student Percentage is = \n" + percentage);
+
+        if (percentage >= 60)
+        {
+            Console.WriteLine("Congratulation Second Student pass \n");
+        }
+        else
+        {
+            Console.WriteLine("Second Student Fail \n");
+        }
+        return sum;
+
+    }
+
+
+}
+
+class program
+{
+    public static void Main(string[] args)
+    {
+        Result obj = new Result();
+        Student st = obj.SetStudentValue();
+        Console.WriteLine(obj.res1());
+        obj.GetStudnetValue(st);
+        List<Student> std = obj.SetStudentDetails();
+        obj.GetStudnetValue(std);
+        Console.WriteLine(obj.res2());
+    }
+}

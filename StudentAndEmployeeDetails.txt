@@ -1,0 +1,47 @@
+using System;
+namespace Inheritance
+{
+    public class StudentAndEmp
+    {
+        String Name;
+        int age;
+        int RollNo;
+        int EmpId;
+        String employeeName;
+        int EmployeeSalary;
+        public void StudentDetails()
+        {
+            Console.WriteLine("Enter Student Name");
+            Name = Console.ReadLine();
+            Console.WriteLine("Enter Student Age");
+            age = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Student Roll No");
+            RollNo = int.Parse(Console.ReadLine());
+
+        }
+        private void EmployeeDetails()
+        {
+            Console.WriteLine("Enter Employee Name");
+            employeeName = Console.ReadLine();
+            Console.WriteLine("Enter EmpId");
+            EmpId = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Employee Salary");
+            EmployeeSalary = int.Parse(Console.ReadLine());
+
+        }
+        public void ShowPrivateMethod()
+        {
+            EmployeeDetails();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StudentAndEmp obj = new StudentAndEmp();
+            obj.StudentDetails();
+            obj.ShowPrivateMethod();
+            
+        }
+    }
+}

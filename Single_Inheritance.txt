@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SingleInherit
+{
+    public class Common
+    {
+       protected int width, height;
+        public void SetValues(int w,int h)
+        {
+            width = w;
+            height = h;
+
+        }
+
+    }
+    public class Rectangle:Common
+    {
+        public void Area()
+        {
+            Console.WriteLine(width * height);
+        }
+    }
+    public class Triangle : Common
+    {
+        public void Area()
+        {
+            Console.WriteLine((width * height)/2);
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Rectangle rectangle = new Rectangle();
+            rectangle.SetValues(12, 10);
+            rectangle.Area();
+            Triangle triangle = new Triangle();
+            triangle.SetValues(10, 15);
+            triangle.Area();
+        }
+    }
+}

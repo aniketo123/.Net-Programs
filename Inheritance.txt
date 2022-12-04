@@ -1,0 +1,30 @@
+using System;
+namespace singleinhertance
+{
+    class program
+    {
+        class baseclass
+        {
+            public void show()
+            {
+                Console.WriteLine("this method for base class");
+            }
+
+        }
+        class Derivedclass : baseclass
+        {
+            public void show1()
+            {
+                Console.WriteLine("this method for derived class");
+            }
+        }
+        public static void Main(string[] args)
+        {
+            Derivedclass ANiket = new Derivedclass();
+            ANiket.show();
+            
+            ANiket.show1();
+            Console.ReadLine();
+        }
+    }
+}

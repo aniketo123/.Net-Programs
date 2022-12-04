@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+namespace EmployeeDetails
+{
+    public class Employee
+    {
+       public int EmployeeId;
+       public String Name;
+    }
+    public class Encome
+    {
+        public int Salary;
+       public int EmployeeId;
+        public string Name;
+    }
+    public class EmployeeSalary
+    {
+        List<Employee> employee = new List<Employee>();
+        public List<Encome> encome = new List<Encome>();
+        public void SetEmployeeDetails(int EmployeeId,string Name)
+        {
+            Employee emp = new Employee();
+            emp.EmployeeId = EmployeeId;
+            emp.Name = Name;
+            employee.Add(emp);
+        }
+        public void SetEmployeeSalary(int Salary,int EmployeeId,string Name)
+        {
+            Encome enc = new Encome();
+            enc.Salary = Salary;
+            enc.EmployeeId= EmployeeId;
+            enc.Name = Name;
+            encome.Add(enc);
+        }
+        public void GetEmployeeSalaryDetails(List<Encome> encome)
+        {
+            foreach(var item in encome)
+            {
+                Console.WriteLine(item.Name);
+                Console.WriteLine(item.EmployeeId);
+                Console.WriteLine(item.Salary);
+            }
+        }
+    }
+    public class program
+    {
+        static void Main(string[] args)
+        {
+            EmployeeSalary obj = new EmployeeSalary();
+            obj.SetEmployeeDetails(11, "Aniket");
+            obj.SetEmployeeDetails(12, "Bigul");
+            obj.SetEmployeeDetails(13, "Umar");
+            obj.SetEmployeeSalary(18000,11,"Aniket");
+            obj.SetEmployeeSalary(18000, 12, "Bigul");
+            obj.SetEmployeeSalary(18000, 12, "Umar");
+            obj.GetEmployeeSalaryDetails(obj.encome);
+        }
+    }
+
+
+}

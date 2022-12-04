@@ -1,0 +1,55 @@
+   using System;
+namespace classandonject
+{
+    public class Addition
+        {
+        public int Number;
+        public string Name;
+        public int num;
+
+        public void GetValue()
+        {
+            Console.WriteLine(Name);
+            Console.WriteLine(Number);  
+            
+        }
+        public void Add(Addition obj,Addition obj1)
+        {
+            Console.WriteLine(obj.Name + obj1.num);  
+        }
+        public void multi(Addition obj2 , Addition obj3)
+        {
+            Console.WriteLine(obj2.num * obj3.num);
+        }
+        
+
+     }
+    class program
+    {
+         static void Main(string[]args)
+        {
+            Addition obj = new Addition();
+            obj.Name = "Aniket";
+            
+            obj.Number = 727907;
+            obj.GetValue();
+            
+            Addition obj1 = new Addition();
+            obj1.Number = 122;
+            obj.Add(obj, obj1);
+            obj1.Name = "Ani";
+
+            Addition obj2 = new Addition();
+            Addition obj3 = new Addition();
+            
+            obj2.num = 12;
+            obj3.num = 12;
+            obj.multi(obj2, obj3);
+            Console.WriteLine("----------------------------");
+            //Console.WriteLine(obj2.num * obj3.num);
+            Console.WriteLine(obj.Name);
+            Console.WriteLine(obj.Number);
+            Console.WriteLine(obj1.Number);
+        }
+    }
+}

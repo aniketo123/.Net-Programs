@@ -1,0 +1,129 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WithReturnTypeWithoutPArameter
+{
+    public class Provider
+    { 
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string EmailId { get; set; }
+    }
+    public class Addition
+    {
+        public int Add()
+        {
+            int num1, num2, result;
+
+            Console.WriteLine("Enter two no.");
+            num1 = int.Parse(Console.ReadLine());
+
+            num2 = int.Parse(Console.ReadLine());
+
+            result = num1 + num2;
+
+            return result;
+        }
+
+        public string StringAdd()
+        {
+            string num1, num2, result;
+
+            Console.WriteLine("Enter two string.");
+            num1 = Console.ReadLine();
+
+            num2 = Console.ReadLine();
+
+            result = num1 + num2;
+
+            return result;
+        }
+
+
+        public Provider SetProviderValues()
+        {
+            Provider provider = new Provider();
+            Console.WriteLine("Enter Id of Provider");
+            provider.Id = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Name of provider");
+            provider.Name = Console.ReadLine();
+
+            Console.WriteLine("Enter EmailId of Provider");
+            provider.EmailId = Console.ReadLine();
+
+            return provider;
+        }
+
+        public void GetProviderValues(Provider provider)
+        {
+            Console.WriteLine(provider.Id);
+            Console.WriteLine(provider.Name);
+            Console.WriteLine(provider.EmailId);
+        }
+
+        public List<Provider> SetProvidersDetails()
+        {
+            List<Provider> listProvider = new List<Provider>();
+
+            Provider provider = new Provider();
+            Console.WriteLine("Enter Id of Provider");
+            provider.Id = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Name of provider");
+            provider.Name = Console.ReadLine();
+
+            Console.WriteLine("Enter EmailId of Provider");
+            provider.EmailId = Console.ReadLine();
+
+            listProvider.Add(provider);
+
+            provider = new Provider();
+            Console.WriteLine("Enter Id of Provider");
+            provider.Id = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Name of provider");
+            provider.Name = Console.ReadLine();
+
+            Console.WriteLine("Enter EmailId of Provider");
+            provider.EmailId = Console.ReadLine();
+
+            listProvider.Add(provider);
+
+            return listProvider;
+        }
+
+        public void GetProvidersValues(List<Provider> providers)
+        {
+            foreach (var item in providers)
+            {
+                Console.WriteLine(item.Id);
+                Console.WriteLine(item.Name);
+                Console.WriteLine(item.EmailId);
+            }
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Addition obj = new Addition();
+            //int res = obj.Add();
+
+            //Console.WriteLine(obj.Add());
+            //Console.WriteLine(obj.StringAdd());
+
+            Provider prv = obj.SetProviderValues();
+            obj.GetProviderValues(prv);
+
+          List<Provider> providers =  obj.SetProvidersDetails();
+            obj.GetProvidersValues(providers);
+        }
+    }
+}

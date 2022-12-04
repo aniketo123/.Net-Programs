@@ -1,0 +1,71 @@
+using std;
+using System;
+namespace std
+{
+    public class Calculator
+    {
+        public int num1;
+        public int num2;
+        public int num3;
+        public int sum = 0;
+        public int subtraction = 0;
+        public int multi = 0;
+
+        public void Add()
+            {
+            Console.Write("Enter Your First Number");
+            num1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Your Second Number");
+            num2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Your Third Number");
+            num3 = int.Parse(Console.ReadLine());
+            sum = num1 + num2 + num3;
+            Console.WriteLine("The Sum is "+sum);
+            }
+        private void Subtraction()
+        {
+            Console.Write("Enter Your First Number");
+            num1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Your Second Number");
+            num2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Your Third Number");
+            num3 = int.Parse(Console.ReadLine());
+           //subtraction = int.Parse(Console.ReadLine());
+            subtraction = num1 - num2 - num3;
+            Console.WriteLine("Ths Subtraction is \n" +subtraction);
+        }
+        protected void Multi()
+        {
+            Console.Write("Enter Your First Number");
+            num1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Your Second Number");
+            num2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter Your Third Number");
+            num3 = int.Parse(Console.ReadLine());
+            //Multi = int.Parse(Console.ReadLine());
+            multi = (num1 * num2 * num3);
+            Console.WriteLine("The Multi is =" +multi);
+        }
+        public void callingPrivateMember()
+        {
+            Subtraction();
+        }
+}
+}
+public class Derivedclass:Calculator
+{
+    public void callingprotectedMember()
+    {
+        Multi();
+    }
+}
+class Program
+{
+    static void Main(String[] args)
+    {
+        Derivedclass obj = new Derivedclass();
+        obj.Add();
+        obj.callingPrivateMember();
+        obj.callingprotectedMember();
+    }
+}

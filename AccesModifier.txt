@@ -1,0 +1,45 @@
+using System;
+namespace AccesModifier
+{
+    public class AccesModifier
+        {
+        public int ID;
+        private string Name;
+        protected int Phone;
+
+        public void Method()
+        {
+            Console.WriteLine("This is public method");
+        }
+        private void Method1()
+        {
+            Console.WriteLine("This is Private Method");
+        }
+        protected void Method2()
+        {
+            Console.WriteLine("This is Protected Method");
+        }
+        public void CallingPrivateMethod()
+        {
+            Method1();
+        }
+    }
+    public class Derivedclass:AccesModifier
+    { 
+        public void CallingProtectedMethod()
+        {
+            Method2();
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Derivedclass obj = new Derivedclass();
+            obj.Method();
+            obj.CallingPrivateMethod();
+            obj.CallingProtectedMethod();
+        }
+    }
+}
