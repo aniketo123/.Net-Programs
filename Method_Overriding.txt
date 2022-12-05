@@ -1,0 +1,40 @@
+Parent class ke method ko child class me change karne ko method overriding kehte hai
+parent class ko virtual keyword Likhte hai or chid class ko override likhe hai
+method overriding me parameter same ya diff se kuch nahi lena dena
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Method_Overriding
+{
+    class A
+    {
+        public virtual void hello()
+        {
+            Console.WriteLine("Hello");
+        }
+    }
+    class B:A
+    {
+        public override void hello()
+        {
+            Console.WriteLine("World");
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            A a = new A();
+            a.hello();
+            a = new B();
+            a.hello();
+
+        }
+    }
+}
