@@ -1,0 +1,26 @@
+using System;
+namespace StaticClass
+{
+    public static class A
+    {
+        public static void Print()
+        {
+            Console.WriteLine("Static class Method");
+        }
+        static  A()
+        {
+            Console.WriteLine("Static class Constructor");
+
+        }
+    }
+    class program
+    {
+        static void Main()
+        {
+            A.Print();
+            Console.ReadKey();
+        }
+
+    }
+
+}
