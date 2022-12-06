@@ -1,3 +1,12 @@
+//static class wo hota hai jiske obj nahi bante hai usko direct class se Acces kaete hai
+//like class.MemberName
+//static class ka Constructor public hota hai
+//Constructor ka koi return type nahi hota hai
+//Static class ka Call kaise hota hai.
+//Ans:-Static class me constructor bana hua hai to memeber ko call karne pr Subse Pahle constructor hi call hota hai.
+//Static class me Default Constructor hi ho sakta hai Parameterized Constructor nahi ho sakta.
+
+
 using System;
 namespace StaticClass
 {
