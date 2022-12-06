@@ -1,0 +1,67 @@
+using System;
+namespace Overriding
+{
+    class ArmsstrongNumber
+    {
+       public int n, temp, r, sum = 0,x;
+        public virtual void Arms()
+        {
+            Console.WriteLine("Please Enter Your Number");
+            n = int.Parse(Console.ReadLine());
+            temp = n;
+            
+            while(n>0)
+            {
+                r = n % 10;
+                sum = sum + (r * r * r);
+                n = n / 10;
+            }
+            if(temp==sum)
+            {
+                Console.WriteLine("Armstrong Number is " +sum);
+            }
+            else
+            {
+                Console.WriteLine("This is Not Armstrong number");
+            }
+        }
+    }
+    class Palindrom:ArmsstrongNumber
+    {
+      public override void Arms()
+
+        { 
+            Console.WriteLine("Please Enter Your Number");
+            n = int.Parse(Console.ReadLine());
+            temp = n;
+              sum=0;
+
+            while (n > 0)
+            {
+                r = n % 10;
+                sum = (sum * 10) + r;
+                n = n / 10;
+            }
+            if(temp==sum)
+            {
+                Console.WriteLine("This is Pallindrom");
+            }
+            else
+            {
+                Console.WriteLine("This is not Pallindrom");
+            }
+
+      }
+    }
+    class program
+    {
+        static void Main()
+        {
+            ArmsstrongNumber arm = new ArmsstrongNumber();
+            arm.Arms();
+            arm = new Palindrom();
+            arm.Arms();
+            Console.ReadKey();
+        }
+    }
+}
