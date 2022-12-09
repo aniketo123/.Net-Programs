@@ -1,0 +1,43 @@
+using System;
+using System.Data.SqlClient;
+namespace AdoProject
+{
+    class program
+    {
+        static void Main(string[] args)
+        {
+            string Id;
+            string Name;
+            string email;
+            string phone;
+            Console.WriteLine("Enter Your Id");
+            Id = Console.ReadLine();
+            Console.WriteLine("Enter Your Name");
+            Name = Console.ReadLine();
+            Console.WriteLine("Enter your Email");
+            email = Console.ReadLine();
+            Console.WriteLine("Enter your Phone No");
+            phone = Console.ReadLine();
+
+            SqlConnection sqlcon = new SqlConnection();
+            SqlCommand sqlcmd = new SqlCommand();
+            sqlcon.ConnectionString = "server=.;database=dbPractice;trusted_Connection=yes;";
+            sqlcon.Open();
+            //Define Connection Type
+            sqlcmd.Connection= sqlcon;
+            //insert Query
+            //sqlcmd.CommandText="insert into Student(id,Name,Email,PhoneNo)values('"+Id+ "','" + Name + "','" + email + "','" + phone +"')";
+
+            //Delete Query
+            //sqlcmd.CommandText = "Delete from Student where Id='" + Id + "'";
+
+            //Update Query
+            sqlcmd.CommandText = "update Student set Name='" + Name + "',Email='" + email + "',PhoneNo='" + phone + "' where Id='"+Id+"'";
+
+
+            //insert Update delete ko Execute karne ke liye
+            sqlcmd.ExecuteNonQuery();
+            sqlcon.Close();
+        }
+    }
+}
