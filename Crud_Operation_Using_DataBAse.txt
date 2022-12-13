@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CrudWithDatabase
+{
+    class Connection
+    {
+        int Id;
+        string Name;
+        string Manager;
+        int salary;
+        string email;
+        string phone;
+    
+        public class Employee : Connection
+        {
+            SqlConnection sqlcon = new SqlConnection();
+            SqlCommand  sqlcmd =new SqlCommand();
+            
+            public void Create()
+            {
+                sqlcon.ConnectionString = "server=.;database=dbEmployee;trusted_Connection=yes;";
+                sqlcon.Open();
+                //Define Connection Type
+                sqlcmd.Connection = sqlcon;
+                //insert Query
+               // sqlcmd.CommandText="insert into Student(id,Name,Manager,Salary,Email,PhoneNo)values('"+Id+ "','" + Name + "','" + Manager + "','" + salary + "''" + email + "','" + phone +"')";
+                Console.WriteLine("Enter Employe Id");
+                Id = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Employee Name");
+                Name = Console.ReadLine();
+                Console.WriteLine("Enter Manager Name");
+                Manager = Console.ReadLine();
+                Console.WriteLine("Enter Salary");
+                salary = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Employee Email");
+                email = Console.ReadLine();
+                Console.WriteLine("Enter Employee Phone");
+                phone = Console.ReadLine();
+                //insert Query
+                // SqlCommand sqlcmd = new SqlCommand();
+                sqlcmd.CommandText = "insert into Employee(Id,Name,Manager_Name,salary,Email,PhoneNo)values('" + Id + "','" + Name + "','" + Manager + "','" + salary + "','" + email + "','" + phone + "')";
+                //insert Update delete ko Execute karne ke liye
+                sqlcmd.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            public void Update()
+            {
+                sqlcon.ConnectionString = "server=.;database=dbEmployee;trusted_Connection=yes;";
+                sqlcon.Open();
+                //Define Connection Type
+                sqlcmd.Connection = sqlcon;
+                Console.WriteLine("Enter Employe Id");
+                Id = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Employee Name");
+                Name = Console.ReadLine();
+                //Console.WriteLine("Enter Manager Name");
+                //Manager = Console.ReadLine();
+                Console.WriteLine("Enter Salary");
+                salary = int.Parse(Console.ReadLine());
+                Console.WriteLine("Enter Employee Email");
+                email = Console.ReadLine();
+                Console.WriteLine("Enter Employee Phone");
+                phone = Console.ReadLine();
+                // SqlCommand sqlcmd = new SqlCommand();
+                //Update Query
+                sqlcmd.CommandText = "update Employee set Name='" + Name + "',Email='" + email + "',PhoneNo='" + phone + "' where Id='" + Id + "'";
+                //insert Update delete ko Execute karne ke liye
+                sqlcmd.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            public void Delete()
+            {
+                sqlcon.ConnectionString = "server=.;database=dbEmployee;trusted_Connection=yes;";
+                sqlcon.Open();
+                //Define Connection Type
+                sqlcmd.Connection = sqlcon;
+                Console.WriteLine("Enter Employe Id");
+                Id = int.Parse(Console.ReadLine());
+                //SqlCommand sqlcmd = new SqlCommand();
+                //Delete Query
+                sqlcmd.CommandText = "Delete from Employee where Id='" + Id + "'";
+                //insert Update delete ko Execute karne ke liye
+                sqlcmd.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            
+        }
+        class Program
+        {
+            static void Main()
+            {
+
+                Console.WriteLine("Please Enter Number\n 1 For Create \n 2 for Update \n 3 for Delete");
+                int Choice = int.Parse(Console.ReadLine());
+                Employee emp = new Employee();
+                switch (Choice)
+                {
+
+                    case 1:
+                        emp.Create();
+                        break;
+
+                    case 2:
+                        emp.Update();
+                        break;
+
+                    case 3:
+                        emp.Delete();
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid Choice");
+                       
+                        break;
+                }
+            }
+        }
+
+
+    }
+
+}
