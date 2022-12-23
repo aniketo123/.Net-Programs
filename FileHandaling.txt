@@ -1,0 +1,109 @@
+Drirectory Information
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace DirectoryInformation
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           //For Creating file in C Drive
+            DirectoryInfo directoryInfo = new DirectoryInfo("C:/Documents");
+            if (directoryInfo.Exists)
+            {
+                Console.WriteLine("already exists");
+                Console.WriteLine(directoryInfo.CreationTime);
+            }
+            else
+            {
+                directoryInfo.Create();
+            }
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace DirectoryInformation
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            DirectoryInfo directoryInfo = new DirectoryInfo("C:/Documents");
+            if (directoryInfo.Exists)
+            {
+                Console.WriteLine("already exists");
+                Console.WriteLine(directoryInfo.CreationTime);
+            }
+            else
+            {
+                directoryInfo.Create();
+            }
+        }
+    }
+}
+
+namespace DriveInformation
+{
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string driveName = Console.ReadLine();
+            DriveInfo driveInfo = new DriveInfo(driveName);
+            
+            Console.WriteLine(((driveInfo.TotalSize/1024)/1024)/1024 + "GB");
+
+            Console.WriteLine(((driveInfo.TotalFreeSpace / 1024) / 1024) / 1024 + "GB");
+            Console.WriteLine(driveInfo.Name);
+            Console.WriteLine(driveInfo.VolumeLabel);
+            Console.WriteLine(driveInfo.DriveType);
+            Console.WriteLine(driveInfo.DriveFormat);
+        }
+    }
+}
+
+
+namespace FileInformation
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //File info Se sirf create hoga.
+            //FileInfo fileInfo = new FileInfo("C:/Documents/arr.txt");
+            //fileInfo.Create();
+            string[] Arr = { "cars", "bikes", "cycle" };
+
+            //isse hum file ke under text enter Karate hai line by line for example this is a file
+            //this is my book
+
+            //File.AppendAllText("C:/Documents/arr.txt", "\nthis is a file");
+            //File.WriteAllLines("C:/Documents/arr.txt",  Arr);
+
+            //isse C ke under Document ke under jitne bhi file honge sb ko print kr dega console pr 
+            string[] dirs = Directory.GetFiles(@"C:/Documents");
+            foreach (string dir in dirs)
+            {
+                Console.WriteLine(dir);
+            }
+            //isse se c ke under document ke under Arr.txt ke under document me jitne bhi folder honnge print ho jaiga
+            File.WriteAllLines("C:/Documents/arr.txt", dirs);
+        }
+
+    }
+}
