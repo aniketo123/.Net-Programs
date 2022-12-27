@@ -1,0 +1,25 @@
+using System;
+using System.IO;
+
+namespace StreamClassesss
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //StreamWriter strw = new StreamWriter("C://Documents//a.txt");
+            //strw.Write("Hello Worlld");
+            //strw.Close();
+
+            StreamReader strr = new StreamReader("C://Documents//a.txt");
+
+            // Console.WriteLine(strr.Read()); Read method read he first line first char and print the ASCII value of that char
+
+            //Console.WriteLine(strr.ReadLine());   //Read the first line only
+
+            Console.WriteLine(strr.ReadToEnd()); // Read the entire content of file.
+
+           
+        }
+    }
+}
